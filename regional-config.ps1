@@ -40,3 +40,5 @@ $Ordered = $Lang | Sort-Object { if ($_.LanguageTag -eq "fr-FR") {0} else {1} }
 
 Set-WinUserLanguageList $Ordered -Force
 
+Copy-UserInternationalSettingsToSystem -WelcomeScreen $True -NewUser $True
+
