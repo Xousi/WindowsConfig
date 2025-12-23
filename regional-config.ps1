@@ -1,17 +1,33 @@
-# Création de la liste de langues
-$LanguageList = New-WinUserLanguageList "fr-FR"
-$LanguageList.Add("en-GB")
+<#
+windows config script
+scope: regional configs
+    * windows display language
+    * languages packs & keyboard
+    * country & region
+#>
+
+#Requires -RunAsAdministrator
+
+$english = "en-GB"
+$french = "fr-FR"
+$englishswiss = "en-CH"
+
+
+# define windows display language (UI)
+Set-WinUILanguageOverride $english
+# windows display bis (for non-unicode programmes)
+Set-WinSystemLocale $english
+
+# create & set languages list & keyboards (set primary first)
+$LanguageList = New-WinUserLanguageList $english
+$LanguageList.Add($french)
 Set-WinUserLanguageList $LanguageList
 
-# Définir la langue d'affichage par défaut (UI)
-Set-WinUILanguageOverride -Language "en-GB"
+# define culture / region format (impacts formating dates, calendar...)
+Set-Culture $englishswiss
 
-# Définir la culture et locale système
-Set-Culture "en-CH"
-# Pour des vieux programmes non utf-8
-Set-WinSystemLocale "en-GB"
-
-# Suisse
+# define country or region (switzerland)
 Set-WinHomeLocation 223
 
+# copy regional settings to new user accounts and welcome screen
 Copy-UserInternationalSettingsToSystem -WelcomeScreen $True -NewUser $True
