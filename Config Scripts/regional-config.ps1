@@ -1,9 +1,12 @@
 <#
 windows config script
 scope: regional configs
+    * install required languages packs
     * windows display language
-    * languages packs & keyboard
+    * keyboard
     * country & region
+    * customise regional formats (date, time, currency, numbers)
+    * apply settings to system
 #>
 
 #Requires -RunAsAdministrator
@@ -56,6 +59,10 @@ Set-WinDefaultInputMethodOverride -InputTip $frenchKeyboardInputId
 
 # define country or region (switzerland)
 Set-WinHomeLocation -GeoId $switzerlandGeoId
+
+# activate automatic timezone selection
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\tzautoupdate" -Name "Start" -Value 3 # automatic = 3
+w32tm /resync # sync time
 
 # define culture / region format (impacts formating dates, calendar...)
 Set-Culture $englishswiss
