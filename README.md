@@ -24,14 +24,21 @@ Config Scripts for Windows
 * Run desired ps1 scripts
 
 # Config
-* [ToDo] Region & Languages
-    * [ToDo] Windows display language
+* Region & Languages
+    * Windows display language
     * [ToDo] Languages packs installation
     * [ToDo] Custom dates & number format
-    * [ToDo] Keyboards
-    * [ToDo] Country & region
+    * Keyboards
+    * Country & region
 * [ToDo] Power management
     *
+
+
+# Sources
+https://www.youtube.com/watch?v=xwpoC71-tvs
+
+# Todo
+* Power settings
 
 
 # Sources
