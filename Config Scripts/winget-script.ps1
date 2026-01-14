@@ -116,6 +116,14 @@ $wingetConfig = @{
             "source" = "winget"
         }
 
+        <# to be tested
+        @{
+            "Name"   = "Git"
+            "ID"     = "Git.Git"
+            "source" = "winget"
+        }
+        #>
+
         <# not available on winget
         @{
             "Name"   = "FreeFileSync"
