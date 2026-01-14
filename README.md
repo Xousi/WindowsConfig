@@ -24,25 +24,19 @@ Config Scripts for Windows
 * Run desired ps1 scripts
 
 # Config
+Each config section is automated in a dedicated script.
+Execute them one by one in order to automatically confugure a fresh windows install.
+
 * Region & Languages
+    * Install required languages packs
     * Windows display language
-    * [ToDo] Languages packs installation
-    * [ToDo] Custom dates & number format
     * Keyboards
     * Country & region
+    * Customise regional formats (date, time, currency, numbers)
+
 * [ToDo] Power management
     *
 
-
-# Sources
-https://www.youtube.com/watch?v=xwpoC71-tvs
-
-# Todo
-* Power settings
-
-
-# Sources
-https://www.youtube.com/watch?v=xwpoC71-tvs
-
-# Todo
-* Power settings
+* Softwares auto-installation with winget
+    * List softwares to be installed by category (Standards, Perso, Pro, Games)
+    * Auto install them with winget
