@@ -12,7 +12,7 @@ scope: install softwares with winget
 $defaultInstallationPath = "S:"
 
 
-$wingetConfig = @{
+$softwareList = @{
 
     ##### Standard Softwares
 
@@ -175,14 +175,50 @@ $wingetConfig = @{
 }
 
 
+# ----------------------------- Ask user to select categories to install --------------------------
+
+Write-Host "`n`n########## Software Category Selection ##########`n" -ForegroundColor Cyan
+Write-Host "Please select the categories of software you want to install:" -ForegroundColor Yellow
+
+$selectedCategories = @{}
+
+foreach ($category in $softwareList.Keys) {
+
+    Write-Host "`n### Category: $category" -ForegroundColor Cyan
+    foreach ($software in $softwareList[$category]) {
+        Write-Host "- ", $software.Name -ForegroundColor Green
+    }
+
+    $answer = $Host.UI.PromptForChoice(
+        "", # title
+        "Install this category ?", # question
+        @('&Yes', '&No'), # choices
+        0 # default choice index (0 = Yes)
+    )
+
+    # answer is the index of the selected choice (0 for Yes, 1 for No)
+    if ($answer -eq 0) {
+        # yes, add the category to the selectedCategories
+        $selectedCategories[$category] = $softwareList[$category]
+    }
+
+}
+
+# summary of selected categories
+Write-Host "`nFollowing categories will be installed:" -ForegroundColor Green
+foreach ($category in $selectedCategories.Keys) {
+    Write-Host "- $category" -ForegroundColor Green
+}
+
+
 
 # ---------------------------- Run Installations -----------------------------
 
-foreach ($category in $wingetConfig.Keys) {
+foreach ($category in $selectedCategories.Keys) {
 
     Write-Output "`n########## Category: $category ##########`n"
 
-    foreach ($software in $wingetConfig[$category]) {
+    foreach ($software in $selectedCategories[$category]) {
 
         $softwareID = $software['ID']
         $softwareName = $software['Name']
@@ -196,7 +232,11 @@ foreach ($category in $wingetConfig.Keys) {
 
         Write-Output "Installing $softwareName."
 
+        <# ### comment line to switch between testing and real execution
+        write-Output "Running command: $command"
+        <#>
         Invoke-Expression $command
+        #>
 
 
     }
