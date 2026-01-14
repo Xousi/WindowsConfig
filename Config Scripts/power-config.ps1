@@ -1,9 +1,9 @@
 <#
 windows config script
 scope: power configs
-    *
-    *
-    *
+    * turn off fast startup & enable hibernate
+    * configure custom power scheme timeouts
+    * configure power buttons actions
 #>
 
 #Requires -RunAsAdministrator

@@ -34,8 +34,11 @@ Execute them one by one in order to automatically confugure a fresh windows inst
     * Country & region
     * Customise regional formats (date, time, currency, numbers)
 
-* [ToDo] Power management
-    *
+* Power management
+    * turn off fast startup & enable hibernate
+    * configure custom power scheme timeouts
+    * configure power buttons actions
+
 
 * Softwares auto-installation with winget
     * List softwares to be installed by category (Standards, Perso, Pro, Games)
