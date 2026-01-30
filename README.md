@@ -5,7 +5,7 @@ Config Scripts for Windows
 * Run 'start-powershell.bat'
     * This file does all the manual steps in one bat script
         * Start powershell as admin
-        * Bypass script execussion policy (allow script execussion)
+        * Bypass script execution policy (allow script execution)
         * EITHER Navigate to the current path & lets you run scripts yourself from the powershell windows
         * OR Run a script automatically (see in code)
 
@@ -17,7 +17,7 @@ Config Scripts for Windows
     ```
     "start-process powershell –verb runAs"
     ```
-* Allow script execussion for ongoing process
+* Allow script execution for ongoing process
     ```
     "Set-ExecutionPolicy RemoteSigned -Scope Process"
     ```
@@ -25,7 +25,7 @@ Config Scripts for Windows
 
 # Config
 Each config section is automated in a dedicated script.
-Execute them one by one in order to automatically confugure a fresh windows install.
+Execute them one by one in order to automatically configure a fresh windows install.
 
 * Region & Languages
     * Install required languages packs
@@ -43,3 +43,16 @@ Execute them one by one in order to automatically confugure a fresh windows inst
 * Softwares auto-installation with winget
     * List softwares to be installed by category (Standards, Perso, Pro, Games)
     * Auto install them with winget
+
+# Windows Activation (Digital license)
+Once the new windows is configures you need to activate it. 
+
+* If you own a digital license on your microsoft account you need to
+    * Sign in to your new computer with the new Microsoft account.
+        * Go to Settings > Accounts > Your Info
+        * Select Sign in with a Microsoft account instead
+    * If the license does not activate automatically, use the troubleshooter
+        * Go to Settings > System > Activation
+        * Select Troubleshoot.
+        * Select "I changed hardware on this device recently".
+        * (Optional) Sign in with the old account if prompted, then select the new device to transfer the license.
