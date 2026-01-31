@@ -38,6 +38,16 @@ $softwareList = @{
             "source" = "winget"
         }
 
+        <# Does not work with my license, use office online instead
+        @{
+            "Name"   = "MS Office"
+            "ID"     = "Microsoft.Office"
+            "source" = "winget"
+        }
+        #>
+
+
+
         @{
             "Name"   = "VSCode"
             "ID"     = "Microsoft.VisualStudioCode"
@@ -56,13 +66,6 @@ $softwareList = @{
             "source" = "winget"
         }
 
-        <# not available on winget
-        @{
-            "Name"   = "Office 2019"
-            "ID"     = "Microsoft.Office.Office2019"
-            "source" = "winget"
-        }
-        #>
     )
 
 
@@ -71,8 +74,8 @@ $softwareList = @{
     "Games"  = @(
 
         @{
-            "Name"   = "Riot\League Of Legends"
-            "ID"     = "RiotGames.LeagueofLegends"
+            "Name"   = "League Of Legends"
+            "ID"     = "RiotGames.LeagueOfLegends.EUW"
             "source" = "winget"
         }
 
@@ -116,13 +119,11 @@ $softwareList = @{
             "source" = "winget"
         }
 
-        <# to be tested
         @{
             "Name"   = "Git"
             "ID"     = "Git.Git"
             "source" = "winget"
         }
-        #>
 
         <# not available on winget
         @{
