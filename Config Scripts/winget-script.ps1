@@ -38,15 +38,6 @@ $softwareList = @{
             "source" = "winget"
         }
 
-        <# Does not work with my license, use office online instead
-        @{
-            "Name"   = "MS Office"
-            "ID"     = "Microsoft.Office"
-            "source" = "winget"
-        }
-        #>
-
-
 
         @{
             "Name"   = "VSCode"
@@ -98,6 +89,28 @@ $softwareList = @{
     ##### Personal Softwares
 
     "Perso"  = @(
+
+        # <# ### comment line to choose Thunderbird or Betterbird
+        @{
+            "Name"   = "Thunderbird"
+            "ID"     = "Mozilla.Thunderbird.ESR.en-GB"
+            "source" = "winget"
+        }
+        <#>
+        @{
+            "Name"   = "Betterbird"
+            "ID"     = "Betterbird.Betterbird"
+            "source" = "winget"
+        }
+        #>
+
+        # <# Use MS office for professional setup, Only Office for personal setup
+        @{
+            "Name"   = "Only Office"
+            "ID"     = "ONLYOFFICE.DesktopEditors"
+            "source" = "winget"
+        }
+        #>
 
         @{
             # installation folder not customizable
@@ -170,6 +183,17 @@ $softwareList = @{
             "source" = "winget"
         }
         #>
+
+        <# Use MS office for professional setup, Only Office for personal setup
+        # MS office license requires a specific installation process
+        @{
+            "Name"   = "MS Office"
+            "ID"     = "Microsoft.Office"
+            "source" = "winget"
+        }
+        #>
+
+
     )
 
 
@@ -233,8 +257,8 @@ foreach ($category in $selectedCategories.Keys) {
 
         Write-Output "Installing $softwareName."
 
-        <# ### comment line to switch between testing and real execution
-        write-Output "Running command: $command"
+        # <# ### comment line to switch between testing and real execution
+        write-Output "Running command: `n$command"
         <#>
         Invoke-Expression $command
         #>
